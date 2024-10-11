@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: mock-data-server
+  labels:
+    app: mock-data-server-app
+
+
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: mock-data-server-app
+
+  template:
+    metadata:
+      labels:
+        app: mock-data-server-app
+
+
+    spec:
+      containers:
+        - name: mock-data-server-pod
+          image: israelsouza17/mockdata-server:0.1
+          ports:
+            - containerPort: 5000
+          
+
+
+
+
+  
